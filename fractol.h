@@ -33,6 +33,7 @@ typedef struct	s_core
 	void		*mlx;
 	void		*win;
 	t_img		*img;
+	int		fractalNumber;
 //	void		function_pointer();
 }				t_core;
 
