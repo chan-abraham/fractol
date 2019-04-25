@@ -13,7 +13,7 @@
 #ifndef FRACTOL_H
 # define FRACTOL_H
 # define WNDW_HGHT 500
-# define WNDW-WDTH 500
+# define WNDW_WDTH 500
 # define THREAD 4
 # include "libft/libft.h"
 # include "minilibx_macos/mlx.h"
@@ -37,6 +37,6 @@ typedef struct	s_core
 //	void		function_pointer();
 }				t_core;
 
-t_core	*main_init(int fractalNumber);
+t_core	*main_init(t_core *mlxCore, int fractalNumber);
 
 #endif

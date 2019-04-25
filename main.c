@@ -40,12 +40,18 @@ int		main(int argc, char **argv)
 
 	if (argc == 2 && (fractalNumber = check_name(argv)) != 0)
 	{
-		if ((mlxCore = main_init(fractalNumber)) != NULL)
+		if (!(mlxCore = (t_core *)ft_memalloc(sizeof(t_core))))
+			return (0);
+		mlxCore->mlx = mlx_init(); //mlx initiation
+		mlxCore->win = mlx_new_window(mlxCore->mlx, WNDW_WDTH, WNDW_HGHT, "fractal");
+		//keyhook here
+		//here we will send it to multithread function
+		if ((mlxCore = main_init(mlxCore, fractalNumber)) != NULL) //image initialization
 		{
-
+			ft_putendl("Error: initialization");
+			return (0);
 		}
-		else
-			ft_putendl("Error: initialiation");
+		mlx_loop(mlxCore->mlx);
 	}
 	else
 		error_display();
